@@ -8,16 +8,23 @@ This dataset is part of a broader initiative to support ethical and effective LL
 
 ## 📁 Dataset Overview
 
-The dataset includes **13 batches** totaling **3,250 Finnish and 3,250 Swedish** instruction–response pairs. Each sample is structured in JSONL format:
+The dataset includes **12 batches**, each intended to include **250 Finnish and 250 Swedish samples**, totaling up to **3,000 samples per language**. However, **some batches contain fewer or even 0 valid samples** due to:
+
+- Limited extractable content from certain PDFs
+- Strict language and quality validation criteria (e.g., minimum sentence length, duplicate removal, correct language detection)
+- Filtering out of noisy, non-domain, or metadata content (e.g., URLs, ISBNs, institutional footers)
+
+Each sample is structured in JSONL format:
 
 ```json
 {
   "instruction": "Kosteikkoviljely – Mitkä ovat sen edut valuma-alueen hallinnassa?",
+  "input": "Kuvaile tätä tarkemmin:",
   "response": "Kosteikkoviljely vähentää ravinnekuormitusta ja sitoo hiiltä..."
 }
 ```
 
-Each instruction–response pair is:
+Each instruction–input–response triplet is:
 - **Non-repetitive**
 - **Domain-specific** (soil, climate adaptation, water management, biodiversity, digital safety, etc.)
 - **Balanced across themes and language**
@@ -26,14 +33,14 @@ Each instruction–response pair is:
 ## 📦 File Structure
 
 ```bash
-├── batch1_synthetic_finnish.jsonl
-├── batch1_synthetic_swedish.jsonl
+├── "Synthetic_Agriculture_Finnish_CLEANED/batch1_dataset_finnish_cleaned.jsonl"
+├── "Synthetic_Agriculture_Swedish_CLEANED/batch1_dataset_swedish_cleaned.jsonl"
 ├── ...
-├── batch13_synthetic_finnish.jsonl
-├── batch13_synthetic_swedish.jsonl
+├── Synthetic_Agriculture_Finnish_CLEANED/batch12_dataset_finnish_cleaned.jsonl
+├── Synthetic_Agriculture_Swedish_CLEANED/batch12_dataset_swedish_cleaned.jsonl
 ```
 
-Each file contains exactly **250 samples**. 
+Most files contain **up to 250 samples**, but some may have fewer due to cleaning and quality control.
 
 ## ✅ Use Cases
 
